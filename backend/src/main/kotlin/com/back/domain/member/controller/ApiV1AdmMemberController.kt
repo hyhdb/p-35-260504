@@ -20,7 +20,8 @@ class ApiV1AdmMemberController(
         @RequestParam("pageSize", defaultValue = "2") pageSize: Int,
         @RequestParam("kw", defaultValue = "") kw: String,
         @RequestParam("kwType", defaultValue = "ALL") kwType: String,
-    ): PageDto<MemberWithUsernameDto> {
+        @RequestParam("kwType", defaultValue = "ALL") kwType: MemberSearchKeywordType,
+        ): PageDto<MemberWithUsernameDto> {
 
         val page = if (page >= 1) page else 1
         val pageSize = if (pageSize >= 5) pageSize else 5
